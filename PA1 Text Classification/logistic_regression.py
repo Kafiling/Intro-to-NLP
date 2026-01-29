@@ -2,9 +2,9 @@ import sys
 
 import pandas as pd
 import pythainlp
-from nltk.tokenize import word_tokenize
 import nltk
-# nltk.download('punkt_tab')
+from nltk.tokenize import word_tokenize
+import math
 
 
 class TextClassifier:
@@ -15,10 +15,26 @@ class TextClassifier:
     def compute_probability(self, text_string):
         # words = pythainlp.tokenize.word_tokenize(text_string,keep_whitespace = False)
 
-        words = word_tokenize(text_string)
+        tokens = set(word_tokenize(text_string))
+        labels = self.get_all_possible_labels()
+        features = self.get_all_possible_features()
 
-        print(words)
-        pass
+        filtered_tokens = tokens.intersection(features)
+
+        # Dict (label -> score)
+        score_dict = {}
+
+        for label in labels:
+            score_dict[label] = 0
+            for token in filtered_tokens:
+                score_dict[label] += self.model_params.loc[token, label]
+
+        # Calculate probability exp(A_i) / sum(exp(A_j))
+        prob_dict = {}
+        for label in labels:
+            prob_dict[label] = math.exp(score_dict[label]) / sum(math.exp(score_dict[label]) for label in labels)
+        
+        return prob_dict
 
     def get_all_possible_features(self):
         # out -> List[str]
@@ -43,5 +59,5 @@ if __name__ == '__main__':
     print("Feature :",model.get_all_possible_features())
     print("Label :",model.get_all_possible_labels())
     print('#---------------#')
-    model.compute_probability("I like to eat")
+    print(model.compute_probability("I like money and hate dust"))
 
