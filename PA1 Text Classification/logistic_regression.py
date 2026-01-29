@@ -2,6 +2,10 @@ import sys
 
 import pandas as pd
 import pythainlp
+from nltk.tokenize import word_tokenize
+import nltk
+# nltk.download('punkt_tab')
+
 
 class TextClassifier:
 
@@ -9,6 +13,11 @@ class TextClassifier:
         self.model_params = pd.read_csv(csv_file_name, index_col=0)
 
     def compute_probability(self, text_string):
+        # words = pythainlp.tokenize.word_tokenize(text_string,keep_whitespace = False)
+
+        words = word_tokenize(text_string)
+
+        print(words)
         pass
 
     def get_all_possible_features(self):
@@ -34,4 +43,5 @@ if __name__ == '__main__':
     print("Feature :",model.get_all_possible_features())
     print("Label :",model.get_all_possible_labels())
     print('#---------------#')
+    model.compute_probability("I like to eat")
 
