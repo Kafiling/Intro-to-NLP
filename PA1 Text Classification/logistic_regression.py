@@ -21,7 +21,7 @@ class TextClassifier:
 
         filtered_tokens = tokens.intersection(features)
 
-        # Dict (label -> score)
+        # Dict (label : score)
         score_dict = {}
 
         for label in labels:
