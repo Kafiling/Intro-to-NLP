@@ -12,10 +12,12 @@ class TextClassifier:
         pass
 
     def get_all_possible_features(self):
-        self.model_params.index
+        # out -> List[str]
+        return self.model_params.index.tolist()
 
     def get_all_possible_labels(self):
-        pass
+        # out -> List[str]
+        return self.model_params.columns.tolist()
 
     def classify(self, text_string):
         pass
@@ -25,8 +27,11 @@ if __name__ == '__main__':
     if (len(sys.argv) != 2):
         print('usage:\tpython logistic_regression.py <model_file>')
         sys.exit(0)
+    # argv[1] is csv file for model params
     model_file_name = sys.argv[1]
     model = TextClassifier(model_file_name)
-    print(model.get_all_possible_features())
-    
+    print('#---------------#')
+    print("Feature :",model.get_all_possible_features())
+    print("Label :",model.get_all_possible_labels())
+    print('#---------------#')
 
