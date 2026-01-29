@@ -45,7 +45,7 @@ class TextClassifier:
         return self.model_params.columns.tolist()
 
     def classify(self, text_string):
-        pass
+        return max(self.compute_probability(text_string))
 
 
 if __name__ == '__main__':
@@ -60,4 +60,5 @@ if __name__ == '__main__':
     print("Label :",model.get_all_possible_labels())
     print('#---------------#')
     print(model.compute_probability("I like money and hate dust"))
+    print(model.classify("I like money and hate dust"))
 
