@@ -1,0 +1,8 @@
+﻿word,negative,neutral,positive,conflict
+beautiful,-0.3,0.1,0.3,0.01
+sucks,0.2,-0.3,-0.4,-0.2
+rich,-0.04,0.1,0.2,0.2
+delicious,-0.3,0.1,0.4,0.1
+neutral,-0.2,0.5,0.1,0.3
+eat,0.01,0.02,0.03,0.04
+good,-0.1,0.1,0.2,0.2
