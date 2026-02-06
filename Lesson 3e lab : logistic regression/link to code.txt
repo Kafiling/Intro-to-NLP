@@ -1,0 +1,7 @@
+Since file is too large (Can't Upload to MCV - 34.1 Mb)
+
+please access via this github link :
+https://github.com/Kafiling/Intro-to-NLP/blob/main/Lesson%203e%20lab%20%3A%20logistic%20regression/Lesson_3e_Lab_Logistic_Regression_for_Text_Classification.ipynb
+
+or acess via colab link here (interactive) :
+https://colab.research.google.com/drive/1g3DNQX5QWo4SxL1Oo2kY9ABS_C0S_Efn?usp=sharing
